@@ -8,9 +8,12 @@ export const Container = styled.div`
   padding-right: 2rem;
 
   @media screen and (max-width: ${(props) => props.theme.breakpoints.md}) {
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     gap: 0.8rem;
     padding: 0 1rem;
+  }
+  @media screen and (max-width: ${(props) => props.theme.breakpoints.sm}){
+    grid-template-columns: auto auto;
   }
 `;
 
@@ -38,9 +41,13 @@ export const Selector = styled.button`
 
   @media screen and (max-width: ${(props) => props.theme.breakpoints.md}) {
     border-radius: 20px;
+
     &:hover,
     &.selected {
       transform: translateX(0) scale(1.02);
+    }
+    span.repos{
+      display: none;
     }
   }
 `;
@@ -49,10 +56,14 @@ export const Cleaner = styled.button`
   background: transparent;
   color: ${(props) => props.theme.colors.text};
   border: none;
-  text-align: center;
+  text-align: left;
   padding: 1rem;
 
   &:hover {
     color: rgba(255, 255, 255, 0.5)
+  }
+
+  @media screen and (max-width: ${(props) => props.theme.breakpoints.md}) {
+    padding: 0 1rem;
   }
 `;

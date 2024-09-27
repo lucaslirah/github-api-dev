@@ -1,13 +1,14 @@
 import React from 'react';
 import {Container, Main, Sidebar} from "./styles";
 import Profile from "./Profile";
+import Filter from "./Filter";
 
 function RepositoriesPage() {
   return (
     <Container>
       <Sidebar>
         <Profile />
-        {/* Sidebar components */}
+        <Filter/>
       </Sidebar>
       <Main>Main</Main>
     </Container>
