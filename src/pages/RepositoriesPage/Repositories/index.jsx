@@ -1,11 +1,16 @@
 import React from 'react';
 
 import { Container } from './styles';
+import Repository from './Repository'
 
 function Repositories() {
   return (
     <Container>
-      Repositories
+      <Repository/>
+      <Repository/>
+      <Repository/>
+      <Repository/>
+      <Repository/>
     </Container>
   )
 }
