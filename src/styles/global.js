@@ -42,4 +42,24 @@ export const GlobalStyle = createGlobalStyle`
   ::placeholder {
     color: ${(props) => props.theme.colors.champagne};
   }
+
+  /* Barra de rolagem */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+  }
+
+  /* Thumb */
+  ::-webkit-scrollbar-thumb {
+    background: #555459;
+    border-radius: 10px;
+  }
+
+  /* Thumb ao passar o mouse */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3b3a3e;
+  }
 `;
