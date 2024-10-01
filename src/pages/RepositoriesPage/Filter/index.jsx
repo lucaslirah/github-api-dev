@@ -1,14 +1,9 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 import {Cleaner, Container, Selector} from './styles';
 
-function Filter() {
-  const languages = [
-    {name: 'JavaScript', count: 5, color: '#f1c40f'},
-    {name: 'Shell', count: 2, color: '#95a5a6'},
-    {name: 'PHP', count: 1, color: '#3498db'},
-    {name: 'Python', count: 1, color: '#27ae60'},
-  ];
+function Filter({ languages }) {
 
   return (
     <Container>
@@ -27,6 +22,14 @@ function Filter() {
       <Cleaner>Limpar</Cleaner>
     </Container>
   )
+}
+
+Filter.propTypes = {
+  languages: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+    count: PropTypes.number.isRequired,
+  })).isRequired,
 }
 
 export default Filter;
