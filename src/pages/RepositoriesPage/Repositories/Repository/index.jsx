@@ -1,19 +1,31 @@
 import React from 'react';
+import PropTypes from "prop-types";
+
 import { Container, Description, Footer, Lang, Link,  Name } from "./styles";
 
-function Repository() {
+function Repository({ repository }) {
   return (
     <Container color="#f1c40f">
-      <Name>Repository</Name>
-      <Description>Repository Description</Description>
+      <Name>{repository.name}</Name>
+      <Description>{repository.description}</Description>
       <Footer color="#f1c40f">
-        <Lang>Repository Lang</Lang>
-        <Link href="https://github.com" target="_blank">
+        <Lang>{repository.language}</Lang>
+        <Link href={repository.html_url} target="_blank">
           Ver
         </Link>
       </Footer>
     </Container>
   )
+}
+
+Repository.propTypes = {
+  repository: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    html_url: PropTypes.string.isRequired,
+    language: PropTypes.string,
+  }).isRequired,
 }
 
 export default Repository;

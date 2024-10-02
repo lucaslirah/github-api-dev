@@ -20,10 +20,10 @@ const user = {
 
 // cálculo das repositórios
 const repositories = [
-  {name: 'github-api-dev', description: 'API desenvolvida para gerenciar repositórios do GitHub', language: 'JavaScript', html_url: 'www.google.com'},
-  {name: 'github-api-dev', description: 'API desenvolvida para gerenciar repositórios do GitHub', language: 'TypeScript', html_url: 'www.google.com'},
-  {name: 'web-dev-challenge', description: 'Desafio para desenvolvedores front-end', language: 'Python', html_url: 'www.google.com'},
-  {name: 'react-native-challenge', description: 'Desafio para desenvolvedores React Native', language: 'JavaScript', html_url: 'www.google.com'},
+  {id: '1', name: 'github-api-dev', description: 'API desenvolvida para gerenciar repositórios do GitHub', language: 'JavaScript', html_url: 'www.google.com'},
+  {id: '2', name: 'github-api-dev', description: 'API desenvolvida para gerenciar repositórios do GitHub', language: 'TypeScript', html_url: 'www.google.com'},
+  {id: '3', name: 'web-dev-challenge', description: 'Desafio para desenvolvedores front-end', language: 'Python', html_url: 'www.google.com'},
+  {id: '4', name: 'react-native-challenge', description: 'Desafio para desenvolvedores React Native', language: 'JavaScript', html_url: 'www.google.com'},
 ];
 
 const languages = getLanguagesFrom(repositories);
@@ -36,7 +36,7 @@ function RepositoriesPage() {
         <Filter languages={languages}/>
       </Sidebar>
       <Main>
-        <Repositories/>
+        <Repositories repositories={repositories}/>
       </Main>
     </Container>
   )
