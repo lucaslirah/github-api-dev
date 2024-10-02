@@ -4,16 +4,20 @@ import PropTypes from "prop-types";
 import { Container } from './styles';
 import Repository from './Repository';
 
-function Repositories({ repositories }) {
+function Repositories({ repositories, currentLanguage }) {
   return (
     <Container>
       {
-        repositories.map(repo => <Repository key={repo.id} repository={repo}/>)
+        repositories
+          .filter(repository => currentLanguage === undefined || currentLanguage === repository.language)
+          .map(repo => <Repository key={repo.id} repository={repo}/>)
       }
     </Container>
   )
 }
-
+Repositories.defaultProps = {
+  currentLanguage: undefined,
+}
 Repositories.propTypes = {
   repositories: PropTypes.arrayOf(
     PropTypes.shape({
@@ -24,6 +28,7 @@ Repositories.propTypes = {
       language: PropTypes.string,
     }).isRequired
   ).isRequired,
+  currentLanguage: PropTypes.string,
 }
 
 export default Repositories;
