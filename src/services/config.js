@@ -12,4 +12,6 @@ export const langColors = {
   c: '#16a085',
   'c#': '#27ae60',
   'c++': '#7f8c8d',
+  scala: '#db331b',
+  swift: '#f05035',
 };

@@ -27,6 +27,9 @@ function RepositoriesPage() {
     {id: '2', name: 'github-api-dev', description: 'API desenvolvida para gerenciar repositórios do GitHub', language: 'TypeScript', html_url: 'www.google.com'},
     {id: '3', name: 'web-dev-challenge', description: 'Desafio para desenvolvedores front-end', language: 'Python', html_url: 'www.google.com'},
     {id: '4', name: 'react-native-challenge', description: 'Desafio para desenvolvedores React Native', language: 'JavaScript', html_url: 'www.google.com'},
+    {id: '5', name: 'Dhiego-Cupim', description: 'Como raspar o caneco.', language: 'C#', html_url: 'https://pt.wikipedia.org/wiki/Andr%C3%A9_Fernandes_(pol%C3%ADtico)'},
+    {id: '6', name: 'Paulo-Pelé', description: 'Eu poderia ser um jogador de futebol, se não fosse pela minha falta de habilidade, resistência, velocidade e talento.', language: 'Scala', html_url: 'https://pt.wikipedia.org/wiki/Pel%C3%A9'},
+    {id: '7', name: 'Caio-Mas-Levanto', description: 'Obrigado por existir Taylor Swift.', language: 'Swift', html_url: 'https://pt.wikipedia.org/wiki/Taylor_Swift'},
   ];
 
   const languages = getLanguagesFrom(repositories);
