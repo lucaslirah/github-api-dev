@@ -8,6 +8,10 @@ const api = axios.create({
 
 export default api;
 
+export function getUser(login){
+  return api.get(`/users/${login}`);
+}
+
 export function getLanguagesFrom(repositories){
 // utilizar map e reduce para separar o número de linguagens de repositories e ordenar do que há mais para menos
   let stats =

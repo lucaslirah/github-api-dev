@@ -1,25 +1,44 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
-import {Container, Main, Sidebar} from "./styles";
+import {
+  Container,
+  Loading,
+  Main,
+  Sidebar
+} from "./styles";
 
 import Profile from "./Profile";
 import Filter from "./Filter";
 import Repositories from "./Repositories";
-import {getLanguagesFrom} from "../../services/api";
+import {getUser, getLanguagesFrom} from "../../services/api";
 
 function RepositoriesPage() {
+  const [user, setUser] = useState();
   const [currentLanguage, setCurrentLanguage] = useState();
+  const [loading, setLoading] = useState(true);
 
-  const user = {
-    login: "lucaslirah",
-    avatar_url: "https://avatars.githubusercontent.com/u/99286728?v=4",
-    name: "Lucas Lira",
-    company: "@edinheirobrasil",
-    blog: "lucasliradev@gmail.com",
-    location: "Fortaleza, Brazil",
-    followers: 5,
-    following: 6,
-  }
+  useEffect(() => {
+    async function loadData(){
+      const [userResponse] = await Promise.all([getUser("lucaslirah")]);
+
+      setUser(userResponse.data);
+
+      setLoading(false);
+    }
+
+    loadData();
+  }, []);
+
+  // const user = {
+  //   login: "lucaslirah",
+  //   avatar_url: "https://avatars.githubusercontent.com/u/99286728?v=4",
+  //   name: "Lucas Lira",
+  //   company: "@edinheirobrasil",
+  //   blog: "lucasliradev@gmail.com",
+  //   location: "Fortaleza, Brazil",
+  //   followers: 5,
+  //   following: 6,
+  // }
 
 // cálculo das repositórios
   const repositories = [
@@ -36,6 +55,10 @@ function RepositoriesPage() {
 
   const onFilterClick = (language) => {
     setCurrentLanguage(language);
+  }
+
+  if(loading) {
+    return <Loading>Carregando...</Loading>;
   }
 
   return (
