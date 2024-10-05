@@ -6,8 +6,10 @@ import RepositoriesPage from "./pages/RepositoriesPage";
 
 export function AppRoutes() {
   return (
+    // eslint-disable-next-line react/jsx-no-comment-textnodes
     <Routes>
-      <Route path="/repositories" element={<RepositoriesPage />} />
+      // nesses parâmetros podemos adicionar quantos forem necessários
+      <Route path="/:login/repositories" element={<RepositoriesPage />} />
       <Route path="/" element={<MainPage />} />
     </Routes>
   );
