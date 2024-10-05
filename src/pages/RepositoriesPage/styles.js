@@ -27,7 +27,7 @@ export const Main = styled.section`
   background: ${(props) => props.theme.colors.container};
   width: 100%;
   height: 100vh;
-  overflow-y: hidden;
+  overflow-y: auto;
   padding: 40px;
 
   @media screen and (max-width: ${(props) => props.theme.breakpoints.md}) {
