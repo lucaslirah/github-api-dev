@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 import {
   Container,
@@ -21,6 +21,7 @@ function RepositoriesPage() {
   const [languages, setLanguages] = useState();
   const [currentLanguage, setCurrentLanguage] = useState();
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function loadData(){
@@ -37,7 +38,21 @@ function RepositoriesPage() {
     }
 
     loadData();
-  }, []);
+  }, [login]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        navigate(-1); // Voltar para a página anterior
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    }
+  },[navigate]);
 
   const onFilterClick = (language) => setCurrentLanguage(language);
 
@@ -48,7 +63,9 @@ function RepositoriesPage() {
   return (
     <Container>
       <Sidebar>
-        <BackButton/>
+        <BackButton
+
+        />
         <Profile user={user}/>
         <Filter
           languages={languages}
