@@ -12,6 +12,7 @@ import Profile from "./Profile";
 import Filter from "./Filter";
 import Repositories from "./Repositories";
 import {getUser, getRepos, getLanguagesFrom} from "../../services/api";
+import BackButton from "../../components/BackButton/BackButton";
 
 function RepositoriesPage() {
   const [user, setUser] = useState();
@@ -47,6 +48,7 @@ function RepositoriesPage() {
   return (
     <Container>
       <Sidebar>
+        <BackButton/>
         <Profile user={user}/>
         <Filter
           languages={languages}
