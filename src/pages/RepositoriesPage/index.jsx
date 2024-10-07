@@ -38,9 +38,7 @@ function RepositoriesPage() {
     loadData();
   }, []);
 
-  const onFilterClick = (language) => {
-    setCurrentLanguage(language);
-  }
+  const onFilterClick = (language) => setCurrentLanguage(language);
 
   if(loading) {
     return <Loading>Carregando...</Loading>;
