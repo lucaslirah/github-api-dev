@@ -1,14 +1,21 @@
-import React from 'react';
-import PropTypes from "prop-types";
 import { MdGroup, MdWork, MdLocationCity, MdLink } from 'react-icons/md';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import Modal from'react-modal';
 
-import {Avatar, Container, Data, Header, Inner, Login, Name} from './styles';
+import { Avatar, CloseButton, Container, customStyles, Data, Header, Inner, Login, Name, StyledModal } from './styles';
+
+Modal.setAppElement('#root');
 
 function Profile({user}) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const closeModal = () => setIsModalOpen(false);
+  const openModal = () => setIsModalOpen(true);
+
   return (
     <Container>
       <Header>
-        <Avatar src={user.avatar_url}/>
+        <Avatar src={user.avatar_url} onClick={openModal}/>
         <Login>{user.login}</Login>
         <Name>{user.name}</Name>
       </Header>
@@ -39,6 +46,17 @@ function Profile({user}) {
           </Data>
         }
       </Inner>
+
+      <StyledModal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        contentLabel="Imagem de Perfil"
+        style={customStyles}
+      >
+        <h2>{user.name}</h2>
+        <img src={user.avatar_url} alt={`${user.name} avatar`} style={{ width: '100%', height: 'auto' }}/>
+        <CloseButton type="button" onClick={closeModal}>Fechar</CloseButton>
+      </StyledModal>
     </Container>
   )
 }
